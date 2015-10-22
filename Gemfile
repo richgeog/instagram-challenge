@@ -17,6 +17,7 @@ gem 'database_cleaner'
 
 group :development, :test do
   gem 'byebug'
+  gem 'launchy'
 end
 
 group :development do

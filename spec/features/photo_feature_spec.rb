@@ -32,7 +32,7 @@ feature 'photos' do
     end
   end
 
-  context 'viewing phtos' do
+  context 'viewing photos' do
     let!(:sunset){Photo.create(title: 'sunset')}
 
     scenario 'lets a user view photos' do
