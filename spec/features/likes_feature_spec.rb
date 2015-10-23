@@ -2,10 +2,6 @@ require 'rails_helper'
 
 feature 'liking photos' do
 
-  # before do
-  #   Photo.create(title: 'sunset.jpg')
-  # end
-
   scenario 'a user can like an image, which increments the count', js: true do
     visit '/photos'
     click_link 'Add a photo'
@@ -19,10 +15,3 @@ feature 'liking photos' do
     expect(page).to have_content ('1 like')
   end
 end
-
-    # visit '/'
-    # click_link 'Add a photo'
-    # click_button 'Create Photo'
-    # click_link 'Like'
-    # expect(page).to have_content ('1 like')
-    # expect(page).to have_content 'test'
