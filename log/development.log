@@ -11365,3 +11365,111 @@ Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328
   [1m[35m (0.2ms)[0m  ROLLBACK
   Rendered photos/new.html.haml within layouts/application (2.4ms)
 Completed 200 OK in 302ms (Views: 43.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/photos" for ::1 at 2015-11-03 16:19:54 +0000
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LpRehkwxhp2VqIWm5hDhoUu8rvXD1sB4y6Keb1RuNXh2VYut0xiHtazicyAH4pnA2uPKVy0XLiKl1SvZJ9etLw==", "photo"=>{"title"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fac734e6188 @tempfile=#<Tempfile:/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/RackMultipart20151103-75795-oys6mr.jpg>, @original_filename="IMG_2331.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"IMG_2331.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Photo"}
+Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-rediz7.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]'
+Command :: convert '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/8d7e99a2837fdc609949070d0febf1c420151103-75795-1l0qjhd'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]'
+Command :: convert '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-eaeg7.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/8d7e99a2837fdc609949070d0febf1c420151103-75795-1hbq0xe'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-1bx7j2r.jpg'
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/6328616ca322283f3c7146a3193d4b6d20151103-75795-hz6cj4.jpg'
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered photos/new.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 280ms (Views: 83.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/photos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/likes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/likes.self-bd7b72c64b455d30740eafd6a5d947014b31f12871b88bf40371d8e62aefde25.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/photos.self-ed9590985dcb89d230d85bca3d5347afe3e5094307ade1e502980a0f1f23e774.css?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-03 16:19:55 +0000
+
+
+Started POST "/photos" for ::1 at 2015-11-03 16:20:01 +0000
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7LKjTfiur0/AM9VUs1fRV1Dc1YXWrUsYtxKIGTj8Uzi0c3ZmZ4euZ/l5I9JSpak2wYOxJzhspULZZT2vS0XLbw==", "photo"=>{"title"=>""}, "commit"=>"Create Photo"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered photos/new.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/photos" for ::1 at 2015-11-03 16:20:19 +0000
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7LKjTfiur0/AM9VUs1fRV1Dc1YXWrUsYtxKIGTj8Uzi0c3ZmZ4euZ/l5I9JSpak2wYOxJzhspULZZT2vS0XLbw==", "photo"=>{"title"=>""}, "commit"=>"Create Photo"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered photos/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/likes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/photos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/photos.self-0628672e4264bf60d91ca2a9ae1e6869cb5f44c1c44be4949d410359452acc6b.css?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/likes.self-bd7b72c64b455d30740eafd6a5d947014b31f12871b88bf40371d8e62aefde25.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
