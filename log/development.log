@@ -11473,3 +11473,17 @@ Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8b
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-03 16:20:19 +0000
+
+
+Started GET "/users/sign_in" for ::1 at 2015-11-03 16:43:06 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (1.9ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 84ms (Views: 72.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-11-03 16:43:44 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/registrations/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.0ms)
