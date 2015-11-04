@@ -10,5 +10,8 @@ describe Photo, type: :model do
     it { is_expected.to have_many(:likes).dependent(:destroy) }
   end
 
+  context 'the photo belongs to the creator' do
+    it { is_expected.to belong_to(:user) }
+  end
 
 end
