@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-def sign_up
+def sign_up(user)
   visit '/'
   click_link 'Sign up'
-  fill_in 'Email', with: user1.email
-  fill_in 'Password', with: user1.password
-  fill_in 'Password_confirmation', with: user1.password_confirmation
+  fill_in 'Email', with: user.email
+  fill_in 'Password', with: user.password
+  fill_in 'Password confirmation', with: user.password_confirmation
   click_button 'Sign up'
 end
 
-def sign_in
+def sign_in(user)
   visit '/'
   click_link 'Sign in'
-  fill_in 'Email', with: user1.email
-  fill_in 'Password', with: user1.password
+  fill_in 'Email', with: user.email
+  fill_in 'Password', with: user.password
   click_button 'Sign in'
 end

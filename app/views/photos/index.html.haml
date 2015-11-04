@@ -27,4 +27,5 @@
 - else
   %h1 No photos added!
 
-%h3= link_to "Add a photo", new_photo_path
+- if current_user
+  %h3= link_to "Add a photo", new_user_photo_path(current_user.id)
