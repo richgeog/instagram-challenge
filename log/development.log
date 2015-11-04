@@ -12817,3 +12817,339 @@ Processing by LikesController#create as */*
   [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
 Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'likes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'photos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-11-04 22:48:33 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"y54jX2AZ6HF/cQxq0DwTfNQDHrYF/KnrzsvWGwIjcDddKn0sNm+r0XIudYTYJ1Q15loIR0ltpzX95S9xRBKf4Q=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-11-04 22:48:33 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  Rendered photos/index.html.haml within layouts/application (19.2ms)
+Completed 200 OK in 57ms (Views: 50.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-11-04 22:48:37 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-11-04 22:48:46 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1croaCQW/IMFwGM+yttWuJSLHb2kTRpK75wtKIOTiH9ll2ITh/xco6pl3mwAb8qx770Y6GWJePxmk3Q6xJYoMg==", "user"=>{"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "rich@gmail.com"]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.4ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1croaCQW/IMFwGM+yttWuJSLHb2kTRpK75wtKIOTiH9ll2ITh/xco6pl3mwAb8qx770Y6GWJePxmk3Q6xJYoMg==", "user"=>{"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.2ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 113ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-11-04 22:48:49 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.2ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-11-04 22:48:58 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HfbGek7RAZJY2nIxPgxs2r4XQ7+IEA1JdqOoy96Jwc+tq0wB7Tuhsvd/z2P0uPDTxSFG6knUb///rPHZmYxhgg==", "user"=>{"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'rich@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 125ms (Views: 45.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2015-11-04 22:49:07 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4YjcZ4hDkTaGn85dmaYzrzg8aLkgtMo6Kd2yaFsp04ZR1VYcK6kxFik6cw9TEq+mQwpt7OFwqIyg0ut6HCxzyw==", "user"=>{"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'rich@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "rich@gmail.com"], ["encrypted_password", "$2a$10$bwEIb53xe306FQsr0L2l0uvTB1zOL65pbvSSSEkVxDh2dqF9iwXBS"], ["created_at", "2015-11-04 22:49:07.564301"], ["updated_at", "2015-11-04 22:49:07.564301"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-11-04 22:49:07.567964"], ["current_sign_in_at", "2015-11-04 22:49:07.567964"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2015-11-04 22:49:07.568810"], ["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2015-11-04 22:49:07 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.1ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered photos/index.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/photos/1/likes" for ::1 at 2015-11-04 22:49:11 +0000
+Processing by LikesController#create as */*
+  Parameters: {"photo_id"=>"1"}
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "likes" ("photo_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["photo_id", 1], ["created_at", "2015-11-04 22:49:11.568912"], ["updated_at", "2015-11-04 22:49:11.568912"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/2/photos/new" for ::1 at 2015-11-04 22:49:12 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered photos/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/photos" for ::1 at 2015-11-04 22:49:27 +0000
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eiJ8UjcqZekx8NAyKLzxKGn5ZD8I8fiT4u/QCytXirvKf/YplMDFyZ5VbWDiCG0hEs9hask1miVr4IkZbFIq9g==", "photo"=>{"title"=>"big arms", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fceccc73bc8 @tempfile=#<Tempfile:/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/RackMultipart20151104-61396-1pjm91m.JPG>, @original_filename="IMG_2339.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"IMG_2339.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Photo"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-f0udrn.JPG'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]'
+Command :: convert '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/cda909dbc8a563221e230dc8c80cb49820151104-61396-iuwe5j'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]'
+Command :: convert '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-o2jhlg.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/cda909dbc8a563221e230dc8c80cb49820151104-61396-1co2il4'
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/t3/v0y59xrn6q1g1c4tgpb_94xh0000gp/T/1b30ece6fa73035f849cefbf340c8c4820151104-61396-1drzcb2.JPG'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("title", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "big arms"], ["image_file_name", "IMG_2339.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 42636], ["image_updated_at", "2015-11-04 22:49:27.393024"], ["created_at", "2015-11-04 22:49:27.491970"], ["updated_at", "2015-11-04 22:49:27.491970"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/photos
+Completed 302 Found in 124ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/photos" for ::1 at 2015-11-04 22:49:27 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.1ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 2]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered photos/index.html.haml within layouts/application (8.9ms)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/photos/2/likes" for ::1 at 2015-11-04 22:49:31 +0000
+Processing by LikesController#create as */*
+  Parameters: {"photo_id"=>"2"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "likes" ("photo_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["photo_id", 2], ["created_at", "2015-11-04 22:49:31.409767"], ["updated_at", "2015-11-04 22:49:31.409767"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/photos/1/comments/new" for ::1 at 2015-11-04 22:49:36 +0000
+Processing by CommentsController#new as HTML
+  Parameters: {"photo_id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/new.html.haml within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 51ms (Views: 46.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/photos/1/comments" for ::1 at 2015-11-04 22:49:44 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCr9hQRBdqNaU9cLF4q1FBtz0EbR2mQgLxSxPGOKV8hwd3f+p6vWg/X2alndPikdYEXVExAeBpamG+guJI/3hQ==", "comment"=>{"thoughts"=>"Silly guy"}, "commit"=>"Leave Comment", "photo_id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("thoughts", "photo_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["thoughts", "Silly guy"], ["photo_id", 1], ["created_at", "2015-11-04 22:49:44.381401"], ["updated_at", "2015-11-04 22:49:44.381401"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/photos
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/photos" for ::1 at 2015-11-04 22:49:44 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered photos/index.html.haml within layouts/application (10.6ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/photos/2/comments/new" for ::1 at 2015-11-04 22:49:46 +0000
+Processing by CommentsController#new as HTML
+  Parameters: {"photo_id"=>"2"}
+  [1m[35mPhoto Load (0.1ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/new.html.haml within layouts/application (1.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/photos/2/comments" for ::1 at 2015-11-04 22:49:51 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rj1Czd6qtByB/Qc4y4G7RSoklwgAYkwQoUdoOqn57CUeYMi2fUAUPC5YumoBNSdMURKSXcGmLqYoSDEo7vxMaA==", "comment"=>{"thoughts"=>"wow"}, "commit"=>"Leave Comment", "photo_id"=>"2"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("thoughts", "photo_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["thoughts", "wow"], ["photo_id", 2], ["created_at", "2015-11-04 22:49:51.584299"], ["updated_at", "2015-11-04 22:49:51.584299"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/photos
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/photos" for ::1 at 2015-11-04 22:49:51 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.1ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered photos/index.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-11-04 22:49:57 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/LbqqwY5L8QC1ihNZUoVbKkruZn8twzvC7TT2l6SnutM62DQpdOP5K1zlR+v/oll0h28zD1zblmCu4rIGZc+pg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-11-04 22:49:57 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 2]]
+  Rendered photos/index.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-11-04 22:50:00 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /Users/richardgeoghegan/.rvm/gems/ruby-2.2.1/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-11-04 22:50:12 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JmMo0yCs08MU8AhKr8xUdHLUytnuvZFpEiN2BTeACFLLoNHI9FnRWlUrgWFLsOTVXn1ICx56gYo89L0OLbbsMg==", "user"=>{"email"=>"bob@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "bob@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2015-11-04 22:50:12.430640"], ["sign_in_count", 2], ["updated_at", "2015-11-04 22:50:12.432435"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-11-04 22:50:12 +0000
+Processing by PhotosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "photos"
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered photos/index.html.haml within layouts/application (10.6ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 1.3ms)
