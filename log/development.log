@@ -12079,3 +12079,10 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPhotoIdToLikes (20151104181347)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "likes" ADD "photo_id" integer[0m
+PG::DuplicateColumn: ERROR:  column "photo_id" of relation "likes" already exists
+: ALTER TABLE "likes" ADD "photo_id" integer
+  [1m[35m (0.1ms)[0m  ROLLBACK
