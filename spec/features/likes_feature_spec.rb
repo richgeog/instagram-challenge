@@ -3,6 +3,8 @@ require 'rails_helper'
 feature 'liking photos' do
 
   scenario 'a user can like an image, which increments the count', js: true do
+    user = build(:user)
+    sign_up(user)
     visit '/photos'
     click_link 'Add a photo'
     fill_in 'Title', with: 'sunset.jpg'
