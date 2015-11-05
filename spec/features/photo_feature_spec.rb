@@ -107,13 +107,37 @@ feature 'photos' do
   end
 
   context 'deleting photos' do
-    before {Photo.create title: 'sunset'}
+    # before {Photo.create title: 'sunset'}
 
-    scenario 'removes a photo when the user clicks the delete link' do
-      visit '/photos'
-      click_link 'Delete sunset'
-      expect(page).to_not have_content 'sunset'
+    scenario 'allows only the creator of the photo to delete the photo' do
+      user = build(:user)
+      sign_up(user)
+      click_link 'Add a photo'
+      fill_in 'Title', with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button 'Create Photo'
+      expect(page).to have_content 'Sunset'
+      expect(current_path).to eq '/photos'
+      click_link 'Delete Sunset'
+      expect(page).to_not have_content 'Sunset'
       expect(page).to have_content 'Photo deleted successfully'
+      expect(current_path).to eq '/photos'
+    end
+
+    scenario 'does not allow the non creator of the image to delete the photo' do
+      user = build(:user)
+      sign_up(user)
+      click_link 'Add a photo'
+      fill_in 'Title', with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button 'Create Photo'
+      expect(page).to have_content 'Sunset'
+      expect(current_path).to eq '/photos'
+      click_link 'Sign out'
+      userbob = build(:userbob)
+      sign_up(userbob)
+      expect(page).to_not have_link 'Delete Sunset'
+      expect(current_path).to eq '/'
     end
   end
 end
