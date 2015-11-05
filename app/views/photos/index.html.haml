@@ -9,6 +9,7 @@
       = 'like'.pluralize photo.likes.count
 
     %h3
+
       Comment for
       = photo.title
 
@@ -20,9 +21,11 @@
 
       - else
         %p No comments
-        %p= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
-        %p= link_to "Edit #{photo.title}", edit_photo_path(photo)
-        %p= link_to "Delete #{photo.title}", photo_path(photo), method: :delete
+
+      %p= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
+      %p= link_to "Edit #{photo.title}", edit_photo_path(photo)
+      %p= link_to "Delete #{photo.title}", photo_path(photo), method: :delete
+
 
 - else
   %h1 No photos added!

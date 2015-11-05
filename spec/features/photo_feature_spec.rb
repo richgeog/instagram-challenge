@@ -69,14 +69,39 @@ feature 'photos' do
   end
 
   context 'editing photos' do
-    before {Photo.create title: 'sunset'}
+    # before {Photo.create title: 'sunset'}
 
-    scenario 'let users edit a photo' do
-      visit '/photos'
-      click_link 'Edit sunset'
-      fill_in 'Title', with: 'dawn'
+    scenario 'allow the creator of the photo edit it only' do
+      user = build(:user)
+      sign_up(user)
+      click_link 'Add a photo'
+      fill_in 'Title', with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button 'Create Photo'
+      expect(page).to have_content 'Sunset'
+      expect(current_path).to eq '/photos'
+      click_link 'Edit Sunset'
+      fill_in 'Title', with: 'Dawn'
       click_button 'Update Photo'
-      expect(page).to have_content 'dawn'
+      expect(page).to have_content 'Dawn'
+      expect(current_path).to eq '/photos'
+    end
+
+    scenario 'a user who does not own the photo can not edit it' do
+      user = build(:user)
+      sign_up(user)
+      click_link 'Add a photo'
+      fill_in 'Title', with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button 'Create Photo'
+      expect(page).to have_content 'Sunset'
+      expect(current_path).to eq '/photos'
+      click_link 'Sign out'
+      click_link 'Sign up'
+      userbob = build(:userbob)
+      sign_up(userbob)
+      click_link 'Edit Sunset'
+      expect(page).to have_content 'You are unabe to edit this photo'
       expect(current_path).to eq '/photos'
     end
   end
