@@ -7,8 +7,4 @@
       - @photo.errors.full_messages.each do |message|
         %li= message
 
-= form_for @photo, html: {multipart: true} do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.file_field :image
-  = f.submit
+= render "form"

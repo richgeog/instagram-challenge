@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'photos' do
 
   context 'no photos have been added' do
-    scenario 'should display a propmt to add a photo' do
+    scenario 'should display a prompt to add a photo' do
       user = build(:user)
       sign_up(user)
       visit '/photos'
