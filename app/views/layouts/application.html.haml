@@ -2,19 +2,26 @@
 %html
   %head
     %title Instagram......but not!!!
+    = stylesheet_link_tag 'normalize', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
-    %h1 Instagram.....but not!!!
+    #header
+      %ul.navbar
+        - if user_signed_in?
+          .li.sign
+            = link_to "Sign Out", destroy_user_session_path, method: :delete
+        - else
+          .li.sign
+            = link_to "Sign In", new_user_session_path
+          .li.sign
+            = link_to "Sign Up", new_user_registration_path
 
-    - if user_signed_in?
-      = link_to "Sign Out", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Sign In", new_user_session_path
-      = link_to "Sign Up", new_user_registration_path
+        %h1.title Pin-stagram!!
 
-    = notice
-    = alert
-    = yield
+  %p.notice= notice
+  %p.notice= alert
+
+  = yield
