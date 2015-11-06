@@ -101,7 +101,7 @@ feature 'photos' do
       userbob = build(:userbob)
       sign_up(userbob)
       click_link 'Edit Sunset'
-      expect(page).to have_content 'You are unabe to edit this photo'
+      expect(page).to have_content 'You are unable to edit this photo'
       expect(current_path).to eq '/photos'
     end
   end

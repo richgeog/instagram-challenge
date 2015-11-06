@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
   def edit
     @photo = Photo.find(params[:id])
     if current_user.id != @photo.user_id
-      flash[:notice] = 'You are unabe to edit this photo'
+      flash[:notice] = 'You are unable to edit this photo'
       redirect_to photos_path
     end
   end

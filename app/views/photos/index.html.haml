@@ -19,13 +19,17 @@
             %li
               = comment.thoughts
 
+            - if current_user && current_user.id == comment.user_id
+              %p= link_to "Delete #{comment.thoughts}", photo_path(comment), method: :delete
+
       - else
         %p No comments
 
-      %p= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
       %p= link_to "Edit #{photo.title}", edit_photo_path(photo)
+
       - if current_user && current_user.id == photo.user_id
         %p= link_to "Delete #{photo.title}", photo_path(photo), method: :delete
+        %p= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
 
 
 - else
