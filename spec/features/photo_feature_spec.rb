@@ -60,7 +60,7 @@ feature 'photos' do
   context 'viewing photos in the show page' do
     # let!(:sunset){Photo.create(title: 'Sunset')}
 
-    scenario 'lets a user view photos' do
+    scenario 'lets a user view photos in the show page' do
       user = build(:user)
       sign_up(user)
       click_link "Add a photo"
@@ -70,6 +70,18 @@ feature 'photos' do
       expect(page).to have_content 'Sunset'
       click_link 'Sunset'
       expect(page).to have_content 'Sunset'
+    end
+
+    scenario 'allows a user to go back to all photos when in the show page' do
+      user = build(:user)
+      sign_up(user)
+      click_link "Add a photo"
+      fill_in "Title", with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button "Create Photo"
+      expect(page).to have_content 'Sunset'
+      click_link 'Sunset'
+      expect(page).to have_link 'Back'
     end
   end
 
