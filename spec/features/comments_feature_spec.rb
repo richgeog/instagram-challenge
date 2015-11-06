@@ -27,7 +27,7 @@ feature 'commenting' do
     click_button 'Create Photo'
     expect(page).to have_content 'Sunset'
     expect(current_path).to eq '/photos'
-    click_link 'Sign out'
+    click_link 'Sign Out'
     visit '/'
     expect(page).to_not have_content 'Comment Sunset'
   end

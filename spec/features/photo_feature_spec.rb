@@ -26,7 +26,7 @@ feature 'photos' do
       click_button 'Create Photo'
       expect(page).to have_content('Sunset')
       expect(page).not_to have_content('No photos added')
-      click_link 'Sign out'
+      click_link 'Sign Out'
       user = build(:userbob)
       sign_up(user)
       visit '/photos/new'
@@ -57,14 +57,19 @@ feature 'photos' do
     end
   end
 
-  context 'viewing photos' do
-    let!(:sunset){Photo.create(title: 'sunset')}
+  context 'viewing photos in the show page' do
+    # let!(:sunset){Photo.create(title: 'Sunset')}
 
     scenario 'lets a user view photos' do
-      visit '/photos'
-      click_link 'sunset'
-      expect(page).to have_content 'sunset'
-      expect(current_path).to eq "/photos/#{sunset.id}"
+      user = build(:user)
+      sign_up(user)
+      click_link "Add a photo"
+      fill_in "Title", with: 'Sunset'
+      attach_file('photo[image]', 'spec/features/images/test.jpg')
+      click_button "Create Photo"
+      expect(page).to have_content 'Sunset'
+      click_link 'Sunset'
+      expect(page).to have_content 'Sunset'
     end
   end
 
@@ -96,8 +101,8 @@ feature 'photos' do
       click_button 'Create Photo'
       expect(page).to have_content 'Sunset'
       expect(current_path).to eq '/photos'
-      click_link 'Sign out'
-      click_link 'Sign up'
+      click_link 'Sign Out'
+      click_link 'Sign Up'
       userbob = build(:userbob)
       sign_up(userbob)
       click_link 'Edit Sunset'
@@ -133,7 +138,7 @@ feature 'photos' do
       click_button 'Create Photo'
       expect(page).to have_content 'Sunset'
       expect(current_path).to eq '/photos'
-      click_link 'Sign out'
+      click_link 'Sign Out'
       userbob = build(:userbob)
       sign_up(userbob)
       expect(page).to_not have_link 'Delete Sunset'
