@@ -1,7 +1,7 @@
 - if @photos.any?
   - @photos.each do |photo|
     %h1= link_to photo.title, photo_path(photo)
-    = image_tag photo.image.url(:medium)
+    = image_tag photo.image.url(:thumb)
 
     %p
       = link_to "Likes", photo_likes_path(photo), class: 'likes-link'
