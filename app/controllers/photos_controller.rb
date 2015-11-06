@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
 
+before_action :authenticate_user!, :expcet => [:index, :show]
+
   def index
     @photos = Photo.all
   end
@@ -25,6 +27,10 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    if current_user.id != @photo.user_id
+      flash[:notice] = 'You are unable to edit this photo'
+      redirect_to photos_path
+    end
   end
 
   def update
@@ -41,6 +47,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:title, :image)
+    params[:photo][:user_id] = current_user.id
+    params.require(:photo).permit(:title, :image, :user_id)
   end
 end
