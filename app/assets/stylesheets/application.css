@@ -26,6 +26,10 @@ body {
   margin-bottom: 0;
 }
 
+ul.navbar {
+  padding-left: 0;
+}
+
 
 
 /****************** alert and notices ******************/
@@ -38,13 +42,39 @@ body {
 
 /****************** show photos page ******************/
 
-/*section {
-  max-width: 350px;
-  background-color: white;
+#photo-details {
+  max-width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  background-color:   #fff;
   text-align: center;
   list-style-type: none;
-}*/
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
+.li {
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.title-show {
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.back-btn{
+  max-width: 20%;
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #A5DAFB;
+  border: 1px outset black;
+  border-radius: 8px;
+}
 
 
 /****************** links ******************/

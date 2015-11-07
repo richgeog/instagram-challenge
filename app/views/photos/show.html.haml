@@ -1,13 +1,14 @@
-%h3= link_to "Back", root_path
-%section
-  %h1= @photo.title
+#photo-details
+  .title-show= @photo.title
 
   = image_tag @photo.image.url(:medium)
 
   - if @photo.comments.any?
-    %ul
+    .ul
       - @photo.comments.each do |comment|
-        %li
+        .li
           = comment.thoughts
   - else
     %p No comments
+
+.back-btn= link_to "Back", root_path
