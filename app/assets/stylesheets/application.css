@@ -131,10 +131,11 @@ a {
 
 
 
-/****************** commenst form page ******************/
+/****************** comments form page ******************/
 
 #comments-form,
-#create-photo-form {
+#create-photo-form,
+.signup {
   max-width: 40%;
   margin: auto;
   margin-top: 50px;
@@ -171,5 +172,13 @@ a {
 
 
 
+/****************** signin/up form page ******************/
 
+.field,
+.actions {
+  padding: 5px;
+}
 
+.signup {
+  padding: 5px;
+}
