@@ -1,39 +1,33 @@
 - if current_user
-  %h3= link_to "Add a photo", new_user_photo_path(current_user.id)
-
+  .add-btn= link_to "Add a photo", new_user_photo_path(current_user.id)
 - if @photos.any?
   - @photos.each do |photo|
-    %h1= link_to photo.title, photo_path(photo)
-    = image_tag photo.image.url(:thumb)
+    #photo-view
+      %h1= link_to photo.title, photo_path(photo)
+      = image_tag photo.image.url(:thumb)
 
-    %p
-      = link_to "Likes", photo_likes_path(photo), class: 'likes-link'
-      %span.likes_count= photo.likes.count
-      = 'like'.pluralize photo.likes.count
+      %p
+        = link_to "Likes", photo_likes_path(photo), class: 'likes-link'
+        %span.likes_count= photo.likes.count
+        = 'like'.pluralize photo.likes.count
 
-    %h3
-
-      Comment for
-      = photo.title
-
-      - if photo.comments.any?
-        %ul
-          - photo.comments.each do |comment|
-            %li
-              = comment.thoughts
-
-            - if current_user && current_user.id == comment.user_id
-              %p= link_to "Delete #{comment.thoughts}", photo_path(comment), method: :delete
-
-      - else
-        %p No comments
-
-      %p= link_to "Edit #{photo.title}", edit_photo_path(photo)
-
+      .li-links-edit= link_to "Edit #{photo.title}", edit_photo_path(photo)
       - if current_user && current_user.id == photo.user_id
-        %p= link_to "Delete #{photo.title}", photo_path(photo), method: :delete
-        %p= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
+        .li-links-delete= link_to "Delete #{photo.title}", photo_path(photo), method: :delete
+        .li-links-comment= link_to "Comment #{photo.title}", new_photo_comment_path(photo)
 
+      .photo-links
+        - if photo.comments.any?
+          %ul
+            - photo.comments.each do |comment|
+              %li
+                = comment.thoughts
+
+              - if current_user && current_user.id == comment.user_id
+                %p= link_to "Delete #{comment.thoughts}", photo_path(comment), method: :delete
+
+        - else
+          %p No comments
 
 - else
   %h1 No photos added!

@@ -1,4 +1,7 @@
-= form_for [@photo, @comment] do |f|
-  = f.label :thoughts
-  = f.text_area :thoughts
-  = f.submit 'Leave Comment'
+#comments-form
+  = form_for [@photo, @comment] do |f|
+    .form-title= f.label :thoughts
+    .form-text= f.text_area :thoughts, :rows => 8, :placeholder =>'Enter your comments'
+    .leave-btn= f.submit 'Leave Comment'
+
+.back-btn= link_to "Back", root_path

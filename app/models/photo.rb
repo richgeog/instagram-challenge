@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   belongs_to :user
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/test.jpg"
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "200x200>" }, :default_url => "/images/test.jpg"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :title, length: {minimum: 3}
 
