@@ -85,6 +85,10 @@ a {
   /*color: #fff;*/
 }
 
+a:visited {
+  color: blue;
+}
+
 
 
 /****************** main display ******************/
@@ -95,41 +99,57 @@ a {
   width: 250px;
   margin-left: 100px;
   min-height: 400px;
-  margin-top: 50px;
+  max-height: 400px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   background-color: #fff;
   text-align: center;
   list-style-type: none;
   border: 1px solid black;
   border-radius: 5px;
-  /*color: #black;*/
 }
 
-.photo-links {
+.photo-title {
+  font-size: 25px;
+  padding: 10px;
+}
 
+.photo-image {
+  padding: 5px;
+}
+
+#likes {
+  padding: 5px;
+}
+
+#links {
+  font-size: 15px;
+  display: inline-block;
 }
 
 .li-links-delete,
 .li-links-edit,
 .li-links-comment {
-  font-size: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 3px;
+  padding: 10px;
 }
 
-.li-links-edit {
-  float: left;
-}
-
+.li-links-edit,
+.li-links-comment,
 .li-links-delete {
-  float: right;
-}
-
-.li-links-comment {
   float: left;
 }
 
+.comms {
+  text-align: center;
+  font-size: 15px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
 
+ul {
+  padding: 0;
+  margin: 0;
+}
 
 /****************** comments form page ******************/
 
