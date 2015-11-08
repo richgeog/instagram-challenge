@@ -46260,3 +46260,70 @@ Processing by PhotosController#index as HTML
   [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 19]]
   Rendered photos/index.html.haml within layouts/application (33.6ms)
 Completed 200 OK in 64ms (Views: 59.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/photos" for ::1 at 2015-11-08 17:02:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "photos"[0m
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 11]]
+  [1m[36mComment Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 11]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1  [["photo_id", 11]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 12]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 12]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1  [["photo_id", 12]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 13]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 13]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 14]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 14]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."photo_id" = $1[0m  [["photo_id", 14]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 15]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 15]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 16]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 16]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 17]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 17]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 18]]
+  [1m[36mComment Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1[0m  [["photo_id", 18]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1  [["photo_id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."photo_id" = $1[0m  [["photo_id", 19]]
+  [1m[35mComment Exists (0.1ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."photo_id" = $1 LIMIT 1  [["photo_id", 19]]
+  Rendered photos/index.html.haml within layouts/application (110.3ms)
+Completed 200 OK in 367ms (Views: 312.9ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/application.self-f6dac1b483ba2827e4030259ce8857f97f56dbb8add86267e560ca6a41086826.css?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/normalize.self-fa7987bf4ff0183930d539f13b3af5b220d7ccf8ffe88cb2bec08948cb400653.css?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/likes.self-bd7b72c64b455d30740eafd6a5d947014b31f12871b88bf40371d8e62aefde25.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/photos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-08 17:02:09 +0000
