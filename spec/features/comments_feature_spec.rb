@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'commenting' do
 
-  scenario 'allows a signed up user to leave a commenting using a form' do
+  scenario 'allows a signed up user to leave a comment using a form' do
     user = build(:user)
     sign_up(user)
     click_link 'Add a photo'
@@ -11,7 +11,7 @@ feature 'commenting' do
     click_button 'Create Photo'
     expect(page).to have_content 'Sunset'
     expect(current_path).to eq '/photos'
-    click_link 'Comment Sunset'
+    click_link 'Comment'
     fill_in "Thoughts", with: "Nice picture"
     click_button 'Leave Comment'
     expect(current_path).to eq '/photos'

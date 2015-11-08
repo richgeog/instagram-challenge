@@ -97,7 +97,7 @@ feature 'photos' do
       click_button 'Create Photo'
       expect(page).to have_content 'Sunset'
       expect(current_path).to eq '/photos'
-      click_link 'Edit Sunset'
+      click_link 'Edit'
       fill_in 'Title', with: 'Dawn'
       click_button 'Update Photo'
       expect(page).to have_content 'Dawn'
@@ -117,7 +117,7 @@ feature 'photos' do
       click_link 'Sign Up'
       userbob = build(:userbob)
       sign_up(userbob)
-      click_link 'Edit Sunset'
+      click_link 'Edit'
       expect(page).to have_content 'You are unable to edit this photo'
       expect(current_path).to eq '/photos'
     end
@@ -135,7 +135,7 @@ feature 'photos' do
       click_button 'Create Photo'
       expect(page).to have_content 'Sunset'
       expect(current_path).to eq '/photos'
-      click_link 'Delete Sunset'
+      click_link 'Delete'
       expect(page).to_not have_content 'Sunset'
       expect(page).to have_content 'Photo deleted successfully'
       expect(current_path).to eq '/photos'
@@ -153,7 +153,7 @@ feature 'photos' do
       click_link 'Sign Out'
       userbob = build(:userbob)
       sign_up(userbob)
-      expect(page).to_not have_link 'Delete Sunset'
+      expect(page).to_not have_link 'Delete'
       expect(current_path).to eq '/'
     end
   end

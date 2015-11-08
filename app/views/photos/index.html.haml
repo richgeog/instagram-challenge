@@ -13,9 +13,12 @@
 
       #links
         .li-links-edit= link_to "Edit", edit_photo_path(photo)
+
+        -if current_user
+          .li-links-comment= link_to "Comment", new_photo_comment_path(photo)
+
         - if current_user && current_user.id == photo.user_id
           .li-links-delete= link_to "Delete", photo_path(photo), method: :delete
-          .li-links-comment= link_to "Comment", new_photo_comment_path(photo)
 
       #photo-comms
         - if photo.comments.any?
