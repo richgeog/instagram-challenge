@@ -10,4 +10,10 @@ class Photo < ActiveRecord::Base
 
   validates :title, length: {minimum: 3}
 
+  def create_like user
+    @like = self.likes.build
+    @like.user_id = user.id
+    @like.save
+  end
+
 end
