@@ -2,16 +2,16 @@ Instagram Challenge
 ===================
 [![Build Status](https://travis-ci.org/richgeog/instagram-challenge.svg)](https://travis-ci.org/richgeog/instagram-challenge) [![Test Coverage](https://codeclimate.com/github/richgeog/instagram-challenge/badges/coverage.svg)](https://codeclimate.com/github/richgeog/instagram-challenge/coverage) [![Code Climate](https://codeclimate.com/github/richgeog/instagram-challenge/badges/gpa.svg)](https://codeclimate.com/github/richgeog/instagram-challenge)
 
-##Task
-
+###Task
+---
 Build Instagram: Simple huh!
 
 Build Instagram using Rails. You'll need **users** who can post **pictures**, write **comments** on pictures and **like** a picture. Style it like Instagram's website (or more awesome).
 
 Bonus if you can add filters!
 
-##How to setup
-
+###How to setup
+---
 ````
 https://github.com/richgeog/instagram-challenge.git
 cd instagram-challenge
@@ -23,38 +23,45 @@ bin/rails s or bin/rails server
 
 Go to localhost:3000
 
-##Testing
-
+###Testing
+---
 ````
 rspec
 ````
-
-##V1
-
+---
+####V1
 * Users can sign up and sign in
 * Users can post images with a title/description
 * Users can edit and delete the image and title
 * Users can post a comment of the photo
 * Users can view thier image as a larger image in a new window
-
-##Still to do
-
-* Users can sign in via facebook
+--------------------------------------------------------------
+####V2
 * Only users who are signed up/in can upload images
-* Only the user who uploaded the image can edit and delete it
+* Only the user who uploaded the image can edit the image and title
 * Only the user who wrote the comment can edit or delete the comment
-* Likes to photos still to be implemented
-* Testing of images
-* Use factory girl
+* Users can Like photos
+* Presence of images uploaded have been tested
+* Use of factory girl
 * Use of partials
-* CSS
-* Deploying to heroku
+* Styling completeds
+* Deployed to heroku
+* Refactored
 
-##Things to remember
+####Screenshot
+---
+![screenshot](public/images/PNG/screenshot1.png)
 
+####Still to do
+---
+* Users can sign in via facebook
+* Only the user who uploaded the image can delete
+
+####Things to remember
+---
 * Set up rails with `rails new [filename] -d postgresql -T`
 * `rake routes` - lists all available paths
-* When using haml, install haml gem
+* When using haml add `gem haml`
 * `bin/rails g controller [filename]`
 * `bin/rails g model [modelname], name:string rating:integer`
 * `bin/rails g migrtion AddDescriptionToRestaurants description:text`
