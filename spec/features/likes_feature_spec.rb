@@ -14,6 +14,6 @@ feature 'liking photos' do
     expect(current_path).to eq '/photos'
     visit '/'
     click_link 'Like'
-    expect(page).to have_content ('1 like')
+    expect(page).to have_content('1 like')
   end
 end

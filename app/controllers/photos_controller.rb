@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 
-before_action :authenticate_user!, :expcet => [:index, :show]
+  before_action :authenticate_user!, :expcet => [:index, :show]
 
   def index
     @photos = Photo.all
