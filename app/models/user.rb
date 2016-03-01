@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_many :photos
   has_many :likes
   has_many :comments
@@ -8,8 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def has_liked? photo
+  def liked?(photo)
     likes.where(photo_id: photo.id).present?
   end
-
 end
