@@ -7,10 +7,12 @@ feature 'liking photos' do
     sign_up(user)
     visit '/photos'
     click_link 'Add a photo'
-    fill_in 'Title', with: 'sunset.jpg'
+    fill_in 'Title', with: 'Sunset'
     attach_file('photo[image]', 'spec/features/images/test.jpg')
     click_button 'Create Photo'
-    expect(page).to have_content 'sunset.jpg'
+    expect(page).to have_selector('img')
+    expect(page).to have_css('img[src*="test.jpg"]')
+    expect(page).to have_content 'Sunset'
     expect(current_path).to eq '/photos'
     visit '/'
     click_link 'Like'
